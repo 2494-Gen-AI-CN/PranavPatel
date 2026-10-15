@@ -61,9 +61,28 @@ def add_delivery(deliveries, platform, payment, distance, time, delivery_date):
         "time": time,
     }
 
+    updated_deliveries  = deliveries + [new_delivery]
+    save_deliveries(updated_deliveries)
+    return updated_deliveries
+
+# function for Reports and Comparisons
+def summarize_deliveries(deliveries, cost_per_km=0.25):
+    count = len(deliveries)
+    gross = sum(record["payment"] for record in deliveries)
+    distance = sum(record["distance"] for record in deliveries)
+    time = sum(record["time"] for record in deliveries)
+    drivers_Expense = distance * cost_per_km
+
+    return {
+        "count": count,
+        "gross": gross,
+        "distance": distance,
+        "time": time,
+        "drivers_Expenses": drivers_Expense,
+        "net_earnings": gross - drivers_Expense,
+        "average_payment": gross / count if count else 0,
+        "gross_per_hour": gross / time * 60 if time else 0,
+    }
+
     
-    
-
-
-
 
