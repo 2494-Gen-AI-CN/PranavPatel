@@ -6,7 +6,7 @@ Platforms = ("UberEats", "DoorDash")
 Data_File = Path(__file__).with_name("deliveries.json")
 
 # Calculating earnings after costs
-def calculate_earnings(payment, distance, time, cost_per_km): #defining the function
+def calculate_earnings(payment, distance, time, cost_per_km=0.25): #defining the function
     # Generating error if user defines non acceptable value 
     if payment < 0 or distance <=0 or time <= 0 or cost_per_km < 0:
         raise ValueError("Payment, distance, time, and cost per km must be positive values.")
@@ -40,6 +40,22 @@ def load_deliveries(): #defining json file
 def save_deliveries(deliveries): 
     with open(Data_File, "w", encoding="utf-8") as file:
         json.dump(deliveries, file, indent=4)
+
+# fucntion to add delivery 
+def add_delivery(deliveries, platform, payment, distance, time, delivery_date):
+    # condition to check if the platform is valid
+    if platform not in Platforms:
+        raise ValueError("Choose either UberEats or Doordash")
+
+    calculate_earnings(payment, distance, time)
+
+    # condition to check if the delivery date is valid 
+    if not isinstance(delivery_date, date):
+        raise ValueError("Delivery date must be valid")
+
+    
+    
+
 
 
 
