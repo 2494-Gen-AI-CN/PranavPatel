@@ -23,4 +23,17 @@ def calculate_earnings(payment, distance, time, cost_per_km): #defining the func
         "gross_per_km": payment / distance, 
         "after_costs_per_hour": net_earnings / time * 60,
     }
-    
+
+# JSON data storage
+def load_deliveries(): #defining json file 
+    # if there is no data file that exists just return empty
+    if not Data_File.exists():
+        return[]
+
+    with open(Data_File, "r") as file:
+        deliveries = json.load(file)
+
+    return deliveries # return the deliveries 
+
+
+
