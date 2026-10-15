@@ -53,6 +53,14 @@ def add_delivery(deliveries, platform, payment, distance, time, delivery_date):
     if not isinstance(delivery_date, date):
         raise ValueError("Delivery date must be valid")
 
+    new_delivery = {
+        "date": delivery_date.isoformat(),
+        "payment": payment,
+        "platform": platform,
+        "distance": distance,
+        "time": time,
+    }
+
     
     
 
