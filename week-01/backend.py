@@ -30,8 +30,9 @@ def load_deliveries(): #defining json file
     if not Data_File.exists():
         return[]
 
-    with open(Data_File, "r") as file:
-        deliveries = json.load(file)
+    #open file in read mode and save it under the variable name file
+    with open(Data_File, "r", encoding="utf-8") as file:
+        deliveries = json.load(file) #convert Json content to python objects 
 
     return deliveries # return the deliveries 
 
