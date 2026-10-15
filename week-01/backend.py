@@ -84,5 +84,8 @@ def summarize_deliveries(deliveries, cost_per_km=0.25):
         "gross_per_hour": gross / time * 60 if time else 0,
     }
 
+# Function to return platform deliveries 
+def platform_deliveries(deliveries, platform):
+    return [record for record in deliveries if record["platform"] == platform]
     
 
