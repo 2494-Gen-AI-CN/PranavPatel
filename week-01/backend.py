@@ -36,5 +36,10 @@ def load_deliveries(): #defining json file
 
     return deliveries # return the deliveries 
 
+# function to save deliveries 
+def save_deliveries(deliveries): 
+    with open(Data_File, "w", encoding="utf-8") as file:
+        json.dump(deliveries, file, indent=4)
+
 
 
