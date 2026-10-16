@@ -1,0 +1,9 @@
+[
+    {
+        "date": "2026-10-15",
+        "payment": 5.5,
+        "platform": "UberEats",
+        "distance": 7.0,
+        "minutes": 25
+    }
+]
